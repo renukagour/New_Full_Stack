@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function showresult() {
+    let a =await addition(10);
+    let b =await subtraction(a);
+    let c =await multiplication(b);
+    let d =await division(c);
+    console.log(d);
+}
+
+showresult();
+function addition(val) {
+    console.log("in addition", val);
+    return (val + 5); //10+5=15
+}
+
+function subtraction(val) {
+    console.log("in subtraction", val);
+    return (val - 2); //15-2=13
+}
+
+function multiplication(val) {
+    console.log("in multiplication", val);
+    return (val * 5); //13*5=65
+}
+
+function division(val) {
+    console.log("in division", val);
+    return (val / 2); //65/2=32.5
+}
+
+async function show() {
+        let result = await new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const success = true;
+                if (success) {
+                    resolve();
+                }
+                else {
+                    reject();
+                }
+            }, 3000);
+        })
+        console.log("result", result);
+    }
+    show();
+    </script>
+</body>
+</html>

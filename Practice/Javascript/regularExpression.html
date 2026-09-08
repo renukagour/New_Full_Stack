@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Regular Expressions in JS</h1>
+    <p id="demo"></p>
+    <script>
+
+        // *************flags/modifiers/attributes**************
+
+        //******i******
+        let str1 = "Hello Friends";
+        let pat1 = /friends/i; //ignore case
+        let res1 = str1.match(pat1);
+
+        //******g******
+        let str2 = "Sun rises. Sun sets. Sun shines.";
+        let pat2 = /sun/ig; //ignore case, global
+        let res2 = str2.match(pat2);
+
+        //******m******
+        let str3 = `line one starts
+        second line
+starts here too
+        random line`;
+        let pat3 = /^starts/igm; //start of line, multiline
+        let res3 = str3.match(pat3);
+
+        // *****************groups********************
+        //-----------------[abc]--------------
+        let str4 = "Tim, Tom, and Tam went home";
+        let pat4 = /[iao]m/ig;
+        let res4 = str4.match(pat4);
+
+        let pat5 = /[^o]m/ig; //negation, except o
+        let res5 = str4.match(pat5);
+
+        //-----------------[0-9]--------------
+        let str5 = "9876543210123456";
+        let pat6 = /[3-7]/g;
+        let res6 = str5.match(pat6);
+
+        // *****************MetaCharacters********************
+        let str6 = "Buy-50%*Now";
+        let res7 = str6.match(/\w/g); //match A-z 0-9 _
+        let res8 = str6.match(/\W/g); //except A-z 0-9 _
+        let res9 = str6.match(/\d/g); //match 0-9
+        let res10 = str6.match(/\D/g); //except 0-9
+
+        // *****************Quantifiers********************
+        let str7 = "colr color colooor colour";
+        let res11 = str7.match(/colo?r/g); //o optional
+        let res12 = str7.match(/colo*r/g); //o zero or more
+        let res13 = str7.match(/colo+r/g); //o one or more
+        let res14 = str7.match(/o{2,3}/g); //o 2 to 3 times
+
+        // *****************Anchors & Boundary********************
+        let str8 = "cat category concatenate";
+        let res15 = /^cat/.test(str8); //starts with
+        let res16 = /nate$/.test(str8); //ends with
+        let res17 = str8.match(/\bcat\b/g); //whole word only
+
+        // *****************Groups & Alternation********************
+        let str9 = "Born on 2026-09-08";
+        let res18 = str9.match(/(\d{4})-(\d{2})-(\d{2})/); //capturing groups
+
+        let str10 = "I want tea or coffee";
+        let res19 = str10.match(/tea|coffee|juice/g); //alternation
+
+        // *****************String Methods with Regex********************
+        let str11 = "Rate: $20, Fee: $5, Bonus: $15";
+        let res20 = [...str11.matchAll(/\$(\d+)/g)].map(m => m[1]); //matchAll captured groups
+        let res21 = str11.replace(/\$(\d+)/g, "USD $1"); //replace all with /g
+        let res22 = str11.search(/Fee/); //search index
+        let res23 = "one, two ,three,  four".split(/\s*,\s*/); //split with regex
+
+        // *****************RegExp Object Methods********************
+        let pat7 = /\w+@\w+\.com/;
+        let str12 = "email me at test@sample.com";
+        let res24 = pat7.test(str12); //test
+        let res25 = pat7.exec(str12); //exec
+
+        let pat8 = /\d+/g;
+        let str13 = "5 dogs 10 cats 15 birds";
+        let m;
+        let res26 = [];
+        while ((m = pat8.exec(str13)) !== null) {
+            res26.push(m[0] + " at index " + m.index);
+        }
+
+        document.getElementById('demo').innerHTML =
+            "i flag: " + res1 + "<br>" +
+            "g flag: " + res2 + "<br>" +
+            "m flag: " + res3 + "<br>" +
+            "[iao]m: " + res4 + "<br>" +
+            "[^o]m: " + res5 + "<br>" +
+            "[3-7]: " + res6 + "<br>" +
+            "\\w: " + res7 + "<br>" +
+            "\\W: " + res8 + "<br>" +
+            "\\d: " + res9 + "<br>" +
+            "\\D: " + res10 + "<br>" +
+            "o? : " + res11 + "<br>" +
+            "o* : " + res12 + "<br>" +
+            "o+ : " + res13 + "<br>" +
+            "o{2,3}: " + res14 + "<br>" +
+            "^cat test: " + res15 + "<br>" +
+            "nate$ test: " + res16 + "<br>" +
+            "\\bcat\\b: " + res17 + "<br>" +
+            "date groups: " + res18 + "<br>" +
+            "alternation: " + res19 + "<br>" +
+            "matchAll amounts: " + res20 + "<br>" +
+            "replace all: " + res21 + "<br>" +
+            "search index: " + res22 + "<br>" +
+            "split: " + res23 + "<br>" +
+            "test email: " + res24 + "<br>" +
+            "exec result: " + res25 + "<br>" +
+            "exec loop: " + res26;
+
+    </script>
+</body>
+
+</html>
