@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        Hello <b>Bold</b> <span style="display:none">Hidden</span> World
+    </div>
+    <script>
+        const box = document.getElementById("box");
+
+        console.log("tagname ",box.tagName);     // "DIV"
+        console.log("innerhtml ",box.innerHTML);   // "Hello <b>Bold</b> <span style=\"display:none\">Hidden</span> World"
+        console.log("textcontent ",box.textContent); // "Hello Bold Hidden World"
+        console.log("innertext ",box.innerText);   // "Hello Bold World"
+    </script>
+</body>
+
+</html>

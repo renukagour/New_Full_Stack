@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #00AAFF, #2e0085);
+            height: 100vh;
+        }
+
+        h1 {
+            color: #ffff;
+            background-color: #044261;
+            text-align: center;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        #postForm {
+            background-color: #ffff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 85%;
+            border-radius: 7px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        #postText {
+            width: 98%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            resize: none;
+
+        }
+
+        #postButton {
+            background: linear-gradient(#00AAFF, #2300bd);
+            color: #ffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+   #postContainer{
+    border:1px solid red;
+   }
+    </style>
+</head>
+
+<body>
+    <h1>Facebook Post</h1>
+    <div id="postForm">
+        <textarea name="" cols="30" rows="10" id="postText" placeholder="Write a post"></textarea>
+        <button id="postButton">Post</button>
+    </div>
+    <div id="postContainer"></div>
+    <script>
+
+        const postText = document.getElementById('postText');
+        const postButton = document.getElementById('postButton');
+        const postContainer = document.getElementById('postContainer');
+        let posts = [];
+
+        function addPost() {
+            const text = postText.value;
+            if (text != '') {
+                const single_Post = {
+                    text: text,
+                    likes: 0,
+                    Comments: []
+                };
+                posts.push(single_Post);
+                console.log(posts);
+                // postText.innerHTML="";
+                // postText.innerText='';
+                // console.log(postText.innerHTML="");
+            }
+            showPost();
+        }
+
+        function showPost() {
+            postContainer.innerHTML = '';
+            posts.forEach((p, index) => { //index gives you index
+                const postElement = document.createElement('div');
+                postElement.classList.add('postdata'); //by this line you give css in style tag by .postdata
+                console.log("the value of p " , p, index);
+                
+                console.log("the value of p likes " + p.likes);
+                console.log("the value of p comments " , p.Comments);
+
+                postElement.innerHTML = `
+                <p>${p.text}</p>
+                <button onclick="likePost(${index})">Like${p.likes}</button>
+            <input type="text" id="commentInput-${index}" placeholder="Write a comment"/>
+            <button onclick="addComment(${index}, document.getElementById('commentInput-${index}').value)">Comment</button>
+            <ul class="comments">
+                ${p.Comments.map(c => `<li>${c}</li>`).join('')}
+            </ul>
+                `;
+                postContainer.appendChild(postElement);
+            })
+        }
+
+
+        function likePost(index) {
+            posts[index].likes++;
+            showPost();
+        }
+
+        function addComment(index, commentText) {
+            console.log(index, commentText);
+            // const comment = { text: commentText };
+            posts[index].Comments.push(commentText);
+            showPost();
+        }
+        postButton.addEventListener('click', addPost);
+    </script>
+</body>
+
+</html>

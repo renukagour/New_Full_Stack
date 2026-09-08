@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      /*        Double and filter
+     Given const prices = [45, 120, 350, 80, 15, 999];,
+      return a new array containing only the prices that are above 100, doubled.
+    */
+      const prices = [45, 120, 350, 80, 15, 999];
+      // const newArray=prices.map((p)=>{
+      // return p>100;
+      // }
+      // )
+      // console.log(newArray)
+      //this above give true false do not go for all instead just give condition
+
+      //   const newArray2 = prices.filter((p) => {
+      //     return p > 100;
+      //   });
+      //   console.log(newArray2);
+
+      const result = prices.filter((p) => p > 100).map((p) => p * 2);
+      console.log(result);
+
+      /*Question 2
+          Total cart value
+    Given const cart = [{ item: "pen", price: 10, qty: 3 }, { item: "book", price: 250, qty: 1 }, { item: "bag", price: 500, qty: 2 }];,
+    use reduce to calculate the total cost (price * qty for each item, summed).
+          */
+      const cart = [
+        { item: "pen", price: 10, qty: 3 },
+        { item: "book", price: 250, qty: 1 },
+        { item: "bag", price: 500, qty: 2 },
+      ];
+      const sum = cart.reduce((acc, c) => acc + c.price * c.qty, 0);
+      console.log(sum);
+
+      /*Find the first out-of-stock item
+  Given const products = [{ name: "A", stock: 5 }, { name: "B", stock: 0 }, { name: "C", stock: 8 }, { name: "D", stock: 0 }];,
+   use find to get the first product with stock === 0.
+   */
+      const products = [
+        { name: "A", stock: 5 },
+        { name: "B", stock: 0 },
+        { name: "C", stock: 8 },
+        { name: "D", stock: 0 },
+      ];
+      const product = products.find((p) => p.stock === 0);
+      console.log(product);
+
+      /*
+        Extract names of active users
+        Given const users = [{ name: "Amit", active: true }, { name: "Priya", active: false }, { name: "Rahul", active: true }];, 
+        return an array of just the names of users who are active. (Hint: combine filter and map.)
+        */
+      const users = [
+        { name: "Amit", active: true },
+        { name: "Priya", active: false },
+        { name: "Rahul", active: true },
+      ];
+      const activeUsers = users.filter((u) => u.active == true);
+      console.log(activeUsers);
+      const activeUsersName = users
+        .filter((u) => u.active == true)
+        .map((u) => u.name);
+      console.log(activeUsersName);
+      /*
+        Group numbers by even/odd
+        Given const nums = [1, 2, 3, 4, 5, 6, 7, 8];, 
+        use reduce to produce a single object: { even: [2, 4, 6, 8], odd: [1, 3, 5, 7] }.*/
+      const nums = [1, 2, 3, 4, 5, 6, 7, 8];
+      const even = nums.filter((n) => n % 2 === 0);
+      const odd = nums.filter((n) => n % 2 != 0);
+      console.log(even);
+      console.log(odd);
+      const resultNum = nums.reduce(
+        (acc, n) => {
+          if (n % 2 === 0) {
+            acc.even.push(n);
+          } else {
+            acc.odd.push(n);
+          }
+          return acc; // remember: always return acc, or it breaks!
+        },
+        { even: [], odd: [] }
+      );
+
+      console.log(resultNum);
+    </script>
+  </body>
+</html>

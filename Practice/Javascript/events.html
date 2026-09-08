@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Events in Javascript </h1>
+    <p id="eventdemo"></p> 
+    <!-- <button id="btn" onclick="show()">Show Content</button> -->
+    <button id="btnevent" >Show Content</button>
+    <br><br>
+    <div id="clickdemo">Click me</div>
+
+    <!-- Toggle example method-6 -->
+   <p id="para1">1Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero in esse adipisci quas repellat, nam
+        corporis fuga nobis itaque amet accusamus commodi blanditiis, nisi eum? Recusandae eveniet minima ut eligendi.
+    </p>
+    <p id="para2" style="display:none">2Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat assumenda
+        praesentium voluptatum
+        natus nemo quasi voluptatibus ullam expedita repellat, sed soluta minus, atque at quisquam ipsam modi, deleniti
+        est veritatis!</p>
+    <button id="readmore" style="color: blue;">Read More</button> 
+
+    <!-- Mouseover example method-6 -->
+    <p id="para3">3Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero in esse adipisci quas repellat, nam
+        corporis fuga nobis itaque amet accusamus commodi blanditiis, nisi eum? Recusandae eveniet minima ut eligendi.
+    </p>
+<br><br>
+    <!-- touch events example method-9 -->
+    <div id="touchdiv" style="width: 200px; background-color:lightcoral">Touch Here</div><br>
+
+    <!-- method-10 submit event -->
+    <form id="myform">
+        <input type="text" name="username" id="username" placeholder="enter name">
+        <input type="submit" value="submit">
+    </form>
+
+    <script>
+        //events are generally occurs or define what to do when some function called
+
+        //method-1
+      //  const eventdemo=document.getElementById('eventdemo');
+      //  function show(){
+      //         eventdemo.innerHTML='Paragraph Content';
+      //   document.getElementById('eventdemo').innerHTML = 'New Paragraph Content';
+      //   }
+        //OR
+
+    // function show() {
+      //       const eventdemo = document.getElementById('eventdemo').innerHTML = 'New Paragraph Content';
+     //}
+        //end of method-1
+
+      //  const btn = document.getElementById('btnevent');
+      //   console.log('events', eventdemo);//id ka element ka data show hota h 
+        //you can manipulate it
+        // console.log('btn', btn);
+
+        //method-2
+      /*   const eventdemo = document.getElementById('eventdemo');
+         const btn = document.getElementById('btnevent');
+        function showcontent() {
+          eventdemo.innerHTML = 'Paragraph Content';
+        }
+
+        btn.addEventListener('click', showcontent);
+        */
+
+        //method-3
+      /*  const eventdemo = document.getElementById('eventdemo');
+        const btn = document.getElementById('btnevent');
+        btn.addEventListener('click',  function show() {
+         eventdemo.innerHTML = 'Paragraph Content';
+        });*/
+       
+        //method-4
+
+/*          const eventdemo = document.getElementById('eventdemo');
+         const btn = document.getElementById('btnevent');
+         btn.addEventListener('click', ()=> {
+            eventdemo.innerHTML = 'Paragraph Content using arrow function';
+         }); */
+
+
+        //method-5
+       /* const eventdemo = document.getElementById('eventdemo');
+         const clickdemo = document.getElementById('clickdemo');
+         clickdemo.addEventListener('click', ()=> {
+            eventdemo.innerHTML = 'Paragraph Content after click  in div';
+          }); */
+
+
+        //method-6
+        //toggle -> when one button or anuthing uses for different purpose
+        //or performing many task is called toggle button like our on off switch
+      const para2 = document.getElementById('para2');
+        const readmore = document.getElementById('readmore');
+        readmore.addEventListener('click', () => {
+         if (para2.style.display == "block") {
+            para2.style.display = "none";
+        }
+        else {
+          para2.style.display = "block";
+        }
+        });
+      
+        //method-7 mouseover
+       /*   const para3 = document.getElementById('para3');
+          para3.addEventListener('mouseover', () => {
+            para3.style.backgroundColor = 'pink';
+        });
+        para3.addEventListener('mouseout', () => {
+          para3.style.backgroundColor = 'white';
+        });
+*/
+        //method-8
+     const para3 = document.getElementById('para3');
+        para3.addEventListener('dblclick', () => {
+         para3.style.backgroundColor = 'red';
+       });
+
+        //method-9
+      const touchdiv = document.getElementById('touchdiv');
+        touchdiv.addEventListener('touchstar', () => {
+           touchdiv.style.backgroundColor = 'lightgreen';
+         });
+      
+        //touchend for mouseout for touch in mobile
+
+        //method-10
+       document.getElementById('myform').addEventListener('submit', () => {
+          alert("Thank you ");
+       });
+      //submit event called in form if click on same button
+        
+      
+        //there are many events
+        //1.OnClick
+
+        //to call the events 2 ways
+        //1st-> by calling function on onclick attribute
+        //2nd-> adding actionListener
+    </script>
+</body>
+
+</html>

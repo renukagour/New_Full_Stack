@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Hi</p>
+    <script>
+        /*Practice: Rewrite these 5 regular functions as arrow functions
+javascript
+// 1
+function square(n) {
+  return n * n;
+}
+
+// 2
+function isEven(n) {
+  return n % 2 === 0;
+}
+
+// 3
+function fullName(first, last) {
+  return first + " " + last;
+}
+
+// 4
+function greetUser(name = "Guest") {
+  return "Welcome, " + name;
+}
+
+// 5
+function sumArray(arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
+  }
+  return total;
+}
+*/
+const square=(n)=>n*n;
+console.log(square(5));
+
+const isEven=(n)=>{
+    return n%2==0;
+}
+console.log(isEven(5));
+
+const fullName=(first,last)=>{
+    return first+" "+last;
+}
+console.log("Your Full Name is", fullName("Renuka","Gour"));
+
+const greetUser=(name = "Guest")=> {
+  return "Welcome, " + name;
+}
+console.log(greetUser());
+
+const sumArray=(arr)=> {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
+  }
+  return total;
+}
+
+console.log(sumArray([1,2,3,4,5]));
+
+
+console.log("childnode length",document.querySelector("p").childNodes.length)
+    </script>
+</body>
+</html>
