@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Timing functions</h1>
+    <p id="zone1"></p>
+    <p id="zone2"></p>
+    <script>
+        const zone1=document.getElementById('zone1');
+        const zone2=document.getElementById('zone2');
+        console.log(zone1,zone2);
+        setInterval(()=>{
+            zone1.innerHTML="run after every 3 sec setInterval";
+            console.log("on window show at once");
+        },3000);
+        setTimeout(()=>{
+            zone2.innerHTML="run after 3 sec only once setTimeout";
+            console.log("setTimeout");
+        })
+    </script>
+</body>
+</html>
