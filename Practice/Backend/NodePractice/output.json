@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Mouse",
+    "price": 799,
+    "stock": 25,
+    "category": "electronics",
+    "discountedPrice": 719.1
+  },
+  {
+    "id": 3,
+    "name": "Notebook Set",
+    "price": 199,
+    "stock": 120,
+    "category": "stationery",
+    "discountedPrice": 179.1
+  },
+  {
+    "id": 4,
+    "name": "Desk Lamp",
+    "price": 1299,
+    "stock": 8,
+    "category": "furniture",
+    "discountedPrice": 1169.1
+  },
+  {
+    "id": 6,
+    "name": "Backpack",
+    "price": 2199,
+    "stock": 15,
+    "category": "lifestyle",
+    "discountedPrice": 1979.1
+  }
+]

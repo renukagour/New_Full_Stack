@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "name": "Wireless Mouse",
+      "price": 799,
+      "stock": 25,
+      "category": "electronics"
+    },
+    {
+      "id": 2,
+      "name": "Mechanical Keyboard",
+      "price": 3499,
+      "stock": 0,
+      "category": "electronics"
+    },
+    {
+      "id": 3,
+      "name": "Notebook Set",
+      "price": 199,
+      "stock": 120,
+      "category": "stationery"
+    },
+    {
+      "id": 4,
+      "name": "Desk Lamp",
+      "price": 1299,
+      "stock": 8,
+      "category": "furniture"
+    },
+    {
+      "id": 5,
+      "name": "Water Bottle",
+      "price": 349,
+      "stock": 0,
+      "category": "lifestyle"
+    },
+    {
+      "id": 6,
+      "name": "Backpack",
+      "price": 2199,
+      "stock": 15,
+      "category": "lifestyle"
+    }
+  ]
