@@ -44,7 +44,7 @@ New_Full_Stack/
 ## ✅ Progress Log
 Tracking what's been learned and built so far:
 
-- [ ] JavaScript Fundamentals
+- [X] JavaScript Fundamentals
 - [ ] Node.js + Express
 - [ ] MongoDB + Mongoose
 - [ ] First Backend Project
