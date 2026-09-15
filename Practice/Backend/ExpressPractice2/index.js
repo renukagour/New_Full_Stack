@@ -3,6 +3,19 @@ const app=express();
 
 app.use(express.static('public'))
 
+// middleware 1
+app.use((req, res, next) => {
+    console.log("Method is ",req.method);
+    req.newData="Adding new Data"; //access in any routes
+    console.log('Time: m1', Date.now());
+    next();
+  });
+
+//   middleware2
+  app.use((req, res, next) => {
+    console.log('Time: m2', Date.now());
+    next();
+  });
 
 // routes example
 const blog=require('./routes/blog')
@@ -24,7 +37,10 @@ app.put('/',(req,res)=>{
     res.send("hello put");
 })
 
-
+app.get('/about',(req,res)=>{
+    console.log(req.newData);
+    res.send("hello about")
+})
 app.get('/index',(req,res)=>{
     // res.send("hello index");
     res.sendFile('./templates/index.html',{root:__dirname})
