@@ -1,0 +1,1 @@
+console.log("hello public file 2");
