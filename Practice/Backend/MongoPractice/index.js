@@ -4,7 +4,13 @@ import { Todo } from './models/Todo.js';
 
 const app = express();
 
-let conn = await mongoose.connect("mongodb://localhost:27017/DummyData")
+let conn = await mongoose.connect("mongodb://localhost:27017/PracticeData")
+if(conn){
+    console.log("DB connected");
+}
+else{
+    console.log("Failed to connect DB")
+}
 
 app.get('/', (req, res) => {
     const todo = new Todo({
