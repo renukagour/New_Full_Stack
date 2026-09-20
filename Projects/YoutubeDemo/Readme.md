@@ -12,6 +12,8 @@
 8. mongoose-aggregate-paginate-v2 -for mongoDB aggregation
 9. bcryptjs - help to hash password
 10. jsonwebtoken -jwt -make tokens to see demo go on jwt.io
+11. multer — handles file uploads from the client (grabs the incoming file from the request)
+12. cloudinary — cloud storage for those files. Multer catches the file locally/temporarily, then you upload it to      Cloudinary to get a permanent URL to store in MongoDB (e.g. avatar: "<https://res.cloudinary.com/>...").
 
 ## Project Setup
 
