@@ -36,8 +36,7 @@ created file named jsconfig.json with content {
 Always Use try catch when deal with DB
 we want when app load the .env file variables everywhere in program so use
 import dotenv from 'dotenv'
-dotenv.config({ path:'./env'}) //it not working in my app dont use path
-CORS_ORIGIN=* //all allowed
+dotenv.config({ path:'./.env'})
 origin:process.env.CORS_ORIGIN,
 credentials:true
 this is used in production level while using cors
