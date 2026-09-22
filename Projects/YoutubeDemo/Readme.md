@@ -60,3 +60,6 @@ userSchema.methods.isPasswordCorrect=async function(password){
 
 }
 ```
+
+Access Token- short lived
+Refresh Token- long lived - session storage - if access token expired user get 401 bad request so server give one end point where user can refresh access token and give refresh token and server check this refresh token and DB refresh token are same if same start session means allowed
