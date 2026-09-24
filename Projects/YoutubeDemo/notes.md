@@ -129,6 +129,7 @@ Request + JWT → Server verifies token → Valid? → Allow / Reject
 ```
 Access Token expires → Refresh Token → New Access Token
 ```
+
 node -e "console.log(require('crypto').randomBytes(64).toString('hex'))" type in console to generate random keyword
 Don't go deep into refresh-token architecture yet — just understand *why* it exists.
 
@@ -240,3 +241,67 @@ Try answering these without scrolling up:
 If you can answer these in your own words, this section's foundation is solid — move on.
 
 ---
+
+```markdown
+## Aggregation Pipeline — Quick Notes
+
+**What it is:** processes documents through stages, each stage's output feeds the next.
+
+```
+
+Documents → Stage 1 → Stage 2 → Stage 3 → Result
+
+```
+
+**`$match`** — filters documents (like `find()`).
+
+```js
+{ $match: { username: username?.toLowerCase() } }
+
+```
+
+**`$lookup`** — joins another collection (MongoDB's version of SQL JOIN).
+
+```js
+{ $lookup: { from: "subscriptions", localField: "_id", foreignField: "channel", as: "subscribers" } }
+
+```
+
+- `foreignField: "channel"` → people subscribed **to** this user (subscribers)
+- `foreignField: "subscriber"` → channels **this user** subscribed to
+- Same collection, same `_id`, two different roles matched.
+
+**`$addFields`** — add computed fields.
+
+```js
+{
+  $addFields: {
+    subscribersCount: { $size: "$subscribers" },
+    isSubscribed: {
+      $cond: { if: { $in: [req.user?._id, "$subscribers.subscriber"] }, then: true, else: false }
+    }
+  }
+}
+
+```
+
+- `$size` → count of an array
+- `$` before a field name = "use this field's value," not a plain string
+- `$cond` = if/else; `$in` = check if value exists in array
+
+**`$project`** — pick final fields to return (`1` = include).
+
+```js
+{ $project: { fullName: 1, username: 1, subscribersCount: 1, isSubscribed: 1 } }
+```
+
+**Why `channel[0]`?** `.aggregate()` always returns an array, even for one match — so grab the first item.
+
+**Flow:**
+
+```
+
+All Users → $match (one user) → $lookup×2 (attach arrays) → $addFields (counts + bool) → $project (clean output)
+```
+
+```
