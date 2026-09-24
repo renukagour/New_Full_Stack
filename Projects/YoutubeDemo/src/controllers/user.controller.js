@@ -2,7 +2,7 @@ import { User } from "../models/user.model.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { uploadOnCloudinary } from "../utils/cloudinary.js";
+import { deleteFromCloudinary, uploadOnCloudinary } from "../utils/cloudinary.js";
 import jwt from "jsonwebtoken";
 
 //methods for tokens
@@ -307,6 +307,9 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Avatar is missing");
     }
 
+    //get old avatar url before it gets overwritten
+    const oldAvatarUrl = req.user?.avatar;
+
     const avatar = await uploadOnCloudinary(avatarLocalPath);
     if (!avatar.url) {
         throw new ApiError(400, "Error while uploading Avatar");
@@ -323,7 +326,10 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
         }
     ).select("-password");
 
-    //
+    //delete old avatar from cloudinary only after the new one is confirmed saved
+    if (oldAvatarUrl) {
+        await deleteFromCloudinary(oldAvatarUrl);
+    }
 
     return res
         .status(200)
@@ -335,6 +341,9 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
     if (!coverImageLocalPath) {
         throw new ApiError(400, "cover Image is missing");
     }
+
+    //get old coverImage  url before it gets overwritten
+    const oldCoverImageUrl = req.user?.coverImage;
 
     const coverImage = await uploadOnCloudinary(coverImageLocalPath);
     if (!coverImage.url) {
@@ -352,6 +361,10 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
         }
     ).select("-password");
 
+    //delete old cover Image from cloudinary only after the new one is confirmed saved
+    if (oldCoverImageUrl) {
+        await deleteFromCloudinary(oldCoverImageUrl);
+    }
     return res
         .status(200)
         .json(new ApiResponse(200, user, "cover Image Updated successfully"));
