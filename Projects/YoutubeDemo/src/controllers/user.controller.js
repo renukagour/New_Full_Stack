@@ -180,8 +180,11 @@ const logOutUser = asyncHandler(async (req, res) => {
     const user = await User.findByIdAndUpdate(
         req.user._id,
         {
-            $set: { refreshToken: undefined },
+            // $set: { refreshToken: undefined },
             // $set: {refreshToken: null}
+            $unset:{
+                refreshToken:1
+            }
         },
         //to get new value
         {
