@@ -18,9 +18,14 @@ app.use(cookieParser());
 
 //import route when we are using temp name use export default
 import userRoute from './routes/user.route.js';
+import videoRoute from './routes/video.route.js';
+import subscriptionRouter from './routes/subscription.route.js';
 
 //declare route
 app.use("/api/v1/users",userRoute);
 //http://localhost:5000/api/v1/users/register
+
+app.use("/api/v1/videos",videoRoute);
+app.use("/api/v1/subscriptions", subscriptionRouter)
 
 export { app }
