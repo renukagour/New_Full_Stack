@@ -20,6 +20,11 @@ app.use(cookieParser());
 import userRoute from './routes/user.route.js';
 import videoRoute from './routes/video.route.js';
 import subscriptionRouter from './routes/subscription.route.js';
+import likeRoute from './routes/like.route.js';
+import commentRoute from './routes/comment.route.js';
+import tweetRoute from './routes/tweet.route.js';
+import playlistRoute from './routes/playlist.route.js';
+
 
 //declare route
 app.use("/api/v1/users",userRoute);
@@ -27,5 +32,9 @@ app.use("/api/v1/users",userRoute);
 
 app.use("/api/v1/videos",videoRoute);
 app.use("/api/v1/subscriptions", subscriptionRouter)
+app.use("/api/v1/likes", likeRoute)
+app.use("/api/v1/comments", commentRoute)
+app.use("/api/v1/tweets", tweetRoute)
+app.use("/api/v1/playlist", playlistRoute)
 
 export { app }
