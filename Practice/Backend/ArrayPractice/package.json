@@ -1,0 +1,15 @@
+{
+  "name": "arraypractice",
+  "version": "1.0.0",
+  "description": "array crud operation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "renuka",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
