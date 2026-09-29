@@ -3,9 +3,11 @@
 This repository documents my journey to becoming a **Full Stack Software Developer**, starting from scratch and rebuilding my skills step by step.
 
 ## 🎯 Goal
+
 To become a confident, job-ready Full Stack Developer, capable of building and deploying real applications end-to-end — frontend, backend, mobile, and basic AI integration.
 
 ## 🛠️ Tech Stack
+
 | Layer | Technology |
 |---|---|
 | Backend | Node.js, Express.js |
@@ -17,6 +19,7 @@ To become a confident, job-ready Full Stack Developer, capable of building and d
 | Deployment | Server & Backend Management |
 
 ## 🗺️ Learning Path
+
 I'm following a structured, phase-based path — backend first, then frontend, then mobile, then DevOps — so each phase builds on real, working knowledge from the one before it:
 
 1. **JavaScript Fundamentals** — promises, async/await, try/catch, array/object methods
@@ -33,7 +36,8 @@ I'm following a structured, phase-based path — backend first, then frontend, t
 📄 Full detailed plan: [`Full_Stack_Developer_Career_Restart_Plan.docx`](./Full_Stack_Developer_Career_Restart_Plan.docx)
 
 ## 📁 Repository Structure
-```
+
+``` 
 New_Full_Stack/
 ├── Practice/     # Daily/topic-wise practice exercises and code snippets
 ├── Projects/     # Complete mini-projects built while learning
@@ -42,12 +46,13 @@ New_Full_Stack/
 ```
 
 ## ✅ Progress Log
+
 Tracking what's been learned and built so far:
 
 - [X] JavaScript Fundamentals
-- [ ] Node.js + Express
-- [ ] MongoDB + Mongoose
-- [ ] First Backend Project
+- [X] Node.js + Express
+- [X] MongoDB + Mongoose
+- [X] First Backend Project
 - [ ] React
 - [ ] Next.js
 - [ ] React Native + Expo
@@ -58,6 +63,7 @@ Tracking what's been learned and built so far:
 *(I'll check these off and link finished projects as I complete each phase.)*
 
 ## 📌 About This Restart
+
 This repo is a public record of relearning full stack development from the ground up — consistent daily practice, one topic at a time, with real projects to prove each skill along the way.
 
 ---
